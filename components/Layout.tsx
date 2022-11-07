@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import Head from 'next/head'
-import { BadgeCheckIcon } from '@heroicons/react/solid'
+import { LightningBoltIcon } from '@heroicons/react/solid'
 
 type Title = {
   title: string
@@ -18,7 +18,7 @@ export const Layout: FC<Title> = ({ children, title = 'Title' }) => {
         {children}
       </main>
       <footer className="flex h-12 w-full items-center justify-center border-t">
-        <BadgeCheckIcon className="h-6 w-6 text-pink-500" />
+        <LightningBoltIcon className="h-6 w-6 text-yellow-500" />
       </footer>
     </div>
   )
