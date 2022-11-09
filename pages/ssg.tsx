@@ -1,31 +1,31 @@
-import { NextPage } from "next";
-import { GetStaticProps } from "next";
-import { Layout } from "../components/Layout";
-import { supabase } from "../utils/supabase";
-import { Task, Notice } from "../types/types";
+import { NextPage } from 'next'
+import { GetStaticProps } from 'next'
+import { Layout } from '../components/Layout'
+import { supabase } from '../utils/supabase'
+import { Task, Notice } from '../types/types'
+import Link from 'next/link'
 
 export const getStaticProps: GetStaticProps = async () => {
-  console.log("getStaticProps/ssg invoked");
+  console.log('getStaticProps/ssg invoked')
   const { data: tasks } = await supabase
-    .from("todos")
-    .select("*")
-    .order("created_at", { ascending: true });
+    .from('todos')
+    .select('*')
+    .order('created_at', { ascending: true })
   const { data: notices } = await supabase
-    .from("notices")
-    .select("*")
-    .order("created_at", { ascending: true });
-  return { props: { tasks, notices } };
-};
+    .from('notices')
+    .select('*')
+    .order('created_at', { ascending: true })
+  return { props: { tasks, notices } }
+}
 
 type StaticProps = {
-  tasks: Task[];
-  notices: Notice[];
-};
+  tasks: Task[]
+  notices: Notice[]
+}
 
 export const Ssg: NextPage<StaticProps> = ({ tasks, notices }) => {
   return (
-    <Layout title={"Ssg"}>
-      {" "}
+    <Layout title={'Ssg'}>
       <p className="mb-3 text-blue-500">SSG</p>
       <ul className="mb-3">
         {tasks.map((task) => {
@@ -33,7 +33,7 @@ export const Ssg: NextPage<StaticProps> = ({ tasks, notices }) => {
             <li key={task.id}>
               <p className="text-lg font-extrabold">{task.title}</p>
             </li>
-          );
+          )
         })}
       </ul>
       <ul className="mb-3">
@@ -42,11 +42,14 @@ export const Ssg: NextPage<StaticProps> = ({ tasks, notices }) => {
             <li key={notice.id}>
               <p className="text-lg font-extrabold">{notice.content}</p>
             </li>
-          );
+          )
         })}
       </ul>
+      <Link href="/ssr" prefetch={false} className="my-3 text-xs text-blue-500">
+        Link to ssr
+      </Link>
     </Layout>
-  );
-};
+  )
+}
 
-export default Ssg;
+export default Ssg
