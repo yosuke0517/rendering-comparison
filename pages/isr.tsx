@@ -28,10 +28,10 @@ export const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
   const router = useRouter()
   return (
     <Layout title="ISR">
-      <h1 className="mb-3 text-indigo-500">
+      <h1 className="my-3 text-indigo-500">
         ISR（コンソールにWeb Vitalsを出力してます）
       </h1>
-      <ul className="mb-3">
+      <ul className="my-3">
         {tasks.map((task) => {
           return (
             <li key={task.id}>
@@ -40,7 +40,7 @@ export const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
           )
         })}
       </ul>
-      <ul className="mb-3">
+      <ul className="my-3">
         {notices.map((notice) => {
           return (
             <li key={notice.id}>
@@ -49,11 +49,23 @@ export const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
           )
         })}
       </ul>
-      <Link href="/ssr" prefetch={false} className="my-3 text-xs">
+      <Link href="/ssr" prefetch={false} className="my-3 text-xs text-blue-500">
         Link to ssr
       </Link>
-      <button className="mb-3 text-xs" onClick={() => router.push('/ssr')}>
+      <Link href="/ssg" prefetch={false} className="my-3 text-xs text-blue-500">
+        Link to ssg
+      </Link>
+      <Link href="/csr" prefetch={false} className="my-3 text-xs text-blue-500">
+        Link to csr
+      </Link>
+      <button className="my-3 text-xs" onClick={() => router.push('/ssr')}>
         Route to ssr
+      </button>
+      <button className="my-3 text-xs" onClick={() => router.push('/ssg')}>
+        Route to ssg
+      </button>
+      <button className="my-3 text-xs" onClick={() => router.push('/csr')}>
+        Route to csr
       </button>
     </Layout>
   )

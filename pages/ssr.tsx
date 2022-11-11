@@ -28,14 +28,14 @@ export const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
   const router = useRouter()
   return (
     <Layout title="SSR">
-      <h1 className="mb-3 text-pink-500">
+      <h1 className="my-3 text-pink-500">
         SSR（コンソールにWeb Vitalsを出力してます）
       </h1>
       <strong>
         SSRのサーバ（AWS
         Lambda）のリージョンはフリープランだとアメリカ（ワシントン）なので遅い
       </strong>
-      <ul className="mb-3">
+      <ul className="my-3">
         {tasks.map((task) => {
           return (
             <li key={task.id}>
@@ -44,7 +44,7 @@ export const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
           )
         })}
       </ul>
-      <ul className="mb-3">
+      <ul className="my-3">
         {notices.map((notice) => {
           return (
             <li key={notice.id}>
@@ -53,16 +53,22 @@ export const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
           )
         })}
       </ul>
+      <Link href="/csr" prefetch={false} className="my-3 text-xs text-blue-500">
+        Link to csr
+      </Link>
       <Link href="/ssg" prefetch={false} className="my-3 text-xs text-blue-500">
         Link to ssg
       </Link>
       <Link href="/isr" prefetch={false} className="my-3 text-xs text-blue-500">
         Link to isr
       </Link>
-      <button className="mb-3 text-xs" onClick={() => router.push('/ssg')}>
+      <button className="my-3 text-xs" onClick={() => router.push('/csr')}>
+        Route to csr
+      </button>
+      <button className="my-3 text-xs" onClick={() => router.push('/ssg')}>
         Route to ssg
       </button>
-      <button className="mb-3 text-xs" onClick={() => router.push('/isr')}>
+      <button className="my-3 text-xs" onClick={() => router.push('/isr')}>
         Route to isr
       </button>
     </Layout>
