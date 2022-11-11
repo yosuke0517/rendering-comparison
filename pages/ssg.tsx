@@ -26,7 +26,9 @@ type StaticProps = {
 export const Ssg: NextPage<StaticProps> = ({ tasks, notices }) => {
   return (
     <Layout title={'Ssg'}>
-      <p className="mb-3 text-blue-500">SSG</p>
+      <h1 className="mb-3 text-blue-500">
+        SSG（コンソールにWeb Vitalsを出力してます）
+      </h1>
       <ul className="mb-3">
         {tasks.map((task) => {
           return (

@@ -28,7 +28,13 @@ export const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
   const router = useRouter()
   return (
     <Layout title="SSR">
-      <p className="mb-3 text-pink-500">SSR</p>
+      <h1 className="mb-3 text-pink-500">
+        SSR（コンソールにWeb Vitalsを出力してます）
+      </h1>
+      <strong>
+        SSRのサーバ（AWS
+        Lambda）のリージョンはフリープランだとアメリカ（ワシントン）なので遅い
+      </strong>
       <ul className="mb-3">
         {tasks.map((task) => {
           return (

@@ -28,7 +28,9 @@ export const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
   const router = useRouter()
   return (
     <Layout title="ISR">
-      <p className="mb-3 text-indigo-500">ISR</p>
+      <h1 className="mb-3 text-indigo-500">
+        ISR（コンソールにWeb Vitalsを出力してます）
+      </h1>
       <ul className="mb-3">
         {tasks.map((task) => {
           return (

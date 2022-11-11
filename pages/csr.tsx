@@ -27,7 +27,9 @@ export const Csr: NextPage = () => {
   }, [])
   return (
     <Layout title="CSR">
-      <p className="mb-3 text-blue-500">SSG + CSF</p>
+      <h1 className="mb-3 text-blue-500">
+        SSG + CSF（コンソールにWeb Vitalsを出力してます）
+      </h1>
       <ul className="mb-3">
         {tasks.map((task) => {
           return (
